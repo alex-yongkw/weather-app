@@ -1,6 +1,7 @@
 "use client";
 
 import { Group, Text } from "react-aria-components";
+import styles from "./styles.module.css";
 
 // TODO -- SSR
 
@@ -11,7 +12,7 @@ type Props = {
 
 export const TemperatureRange = ({ high, low }: Props) => {
   return (
-    <Group className="temperature-range">
+    <Group className={styles.container}>
       <Text>{`H: ${high}°`}</Text>
       <Text>{`L: ${high}°`}</Text>
     </Group>

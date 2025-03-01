@@ -1,6 +1,7 @@
 "use client";
 
 import { Text } from "react-aria-components";
+import styles from "./styles.module.css";
 
 // TODO -- SSR
 
@@ -9,5 +10,5 @@ type Props = {
 };
 
 export const InfoText = ({ content }: Props) => {
-  return <Text className="info-text">{content}</Text>;
+  return <Text className={styles.text}>{content}</Text>;
 };
