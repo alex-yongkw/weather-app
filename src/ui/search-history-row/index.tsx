@@ -3,6 +3,7 @@
 import { Group, Text } from "react-aria-components";
 import { HistoryAction } from "../button/history-action";
 import { formatDateTime } from "@/utils";
+import styles from "./styles.module.css";
 
 type Props = {
   city: string;
@@ -20,12 +21,12 @@ export const SearchHistoryRow = ({
   onDelete,
 }: Props) => {
   return (
-    <Group className="search-history-row">
-      <Group className="text-group">
+    <Group className={styles.container}>
+      <Group className={styles.locationAndDateTimeContainer}>
         <Text>{`${city}, ${country}`}</Text>
-        <Text className="date-time">{formatDateTime(date)}</Text>
+        <Text className={styles.dateAndTime}>{formatDateTime(date)}</Text>
       </Group>
-      <Group className="action-button-group">
+      <Group className={styles.actionButtonGroup}>
         <HistoryAction type="search" onClick={onSearch} />
         <HistoryAction type="delete" onClick={onDelete} />
       </Group>

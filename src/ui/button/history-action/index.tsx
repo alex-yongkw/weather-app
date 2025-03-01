@@ -5,6 +5,7 @@
 import { assertUnreachable } from "@/utils";
 import { Button } from "react-aria-components";
 import { FaSearch, FaTrash } from "react-icons/fa";
+import styles from './styles.module.css'
 
 type Props = {
   type: "search" | "delete";
@@ -25,7 +26,7 @@ export const HistoryAction = ({ type, onClick }: Props) => {
     }
   };
   return (
-    <Button onPress={onClick} className="history-action">
+    <Button onPress={onClick} className={styles.container}>
       {getIcon()}
     </Button>
   );
