@@ -83,17 +83,24 @@ a {
 }
 
 /* Weather info */
+.weather-info {
+  display: flex;
+  flex-direction: column;
+}
+
 .today-weather {
   color: rgba(0, 0, 0, 1);
   font-size: 16px;
   font-weight: 400;
+  padding-bottom: 10px;
 }
 
 .temperature-reading {
   color: rgba(108, 64, 181, 1);
   font-size: 110px;
   font-weight: 700;
-  line-height: 130px;
+  line-height: 100px;
+  padding-bottom: 10px;
 }
 
 .temperature-range {
@@ -102,6 +109,7 @@ a {
   font-weight: 400;
   display: flex;
   gap: 10px;
+  padding-bottom: 10px;
 }
 
 .info-row {
