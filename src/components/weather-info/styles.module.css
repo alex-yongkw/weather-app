@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.todayWeather {
+  color: rgba(0, 0, 0, 1);
+  font-size: 16px;
+  font-weight: 400;
+  padding-bottom: 10px;
+}
+
+.temperatureReading {
+  color: rgba(108, 64, 181, 1);
+  font-size: 110px;
+  font-weight: 700;
+  line-height: 100px;
+  padding-bottom: 10px;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+}

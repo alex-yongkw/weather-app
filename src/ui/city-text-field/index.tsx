@@ -1,6 +1,7 @@
 "use client";
 
 import { TextField, Label, Input } from "react-aria-components";
+import styles from "./styles.module.css";
 
 type Props = {
   onChange: (val: string) => void;
@@ -8,9 +9,9 @@ type Props = {
 
 export const CityTextField = ({ onChange }: Props) => {
   return (
-    <TextField onChange={onChange}>
-      <Label>City</Label>
-      <Input />
+    <TextField className={styles.container} onChange={onChange}>
+      <Label className={styles.label}>City</Label>
+      <Input className={styles.input} />
     </TextField>
   );
 };
