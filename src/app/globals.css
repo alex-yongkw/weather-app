@@ -71,3 +71,24 @@ a {
 .react-aria-TextField input:focus {
   outline: 2px solid rgba(255, 255, 255, 0.4);
 }
+
+.search-weather {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0px;
+  border-radius: 20px;
+}
+
+/* Search history */
+.history-action {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0px;
+  border-radius: 50%;
+}
