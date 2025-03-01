@@ -2,6 +2,7 @@
 
 import { Group, Text } from "react-aria-components";
 import { HistoryAction } from "../button/history-action";
+import { formatDateTime } from "@/utils";
 
 type Props = {
   city: string;
@@ -22,7 +23,7 @@ export const SearchHistoryRow = ({
     <Group className="search-history-row">
       <Group className="text-group">
         <Text>{`${city}, ${country}`}</Text>
-        <Text className="date-time">some date</Text>
+        <Text className="date-time">{formatDateTime(date)}</Text>
       </Group>
       <Group className="action-button-group">
         <HistoryAction type="search" onClick={onSearch} />
