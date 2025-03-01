@@ -5,7 +5,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #d49fd7;
     --foreground: #ededed;
   }
 }
@@ -82,7 +82,69 @@ a {
   border-radius: 20px;
 }
 
+/* Weather info */
+.today-weather {
+  color: rgba(0, 0, 0, 1);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.temperature-reading {
+  color: rgba(108, 64, 181, 1);
+  font-size: 110px;
+  font-weight: 700;
+  line-height: 130px;
+}
+
+.temperature-range {
+  color: rgba(0, 0, 0, 1);
+  font-size: 16px;
+  font-weight: 400;
+  display: flex;
+  gap: 10px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.info-text {
+  color: rgba(102, 102, 102, 1);
+  font-size: 16px;
+  font-weight: 400;
+}
+
 /* Search history */
+.search-history-row {
+  height: 60px;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 16px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
+  padding-left: 20px;
+  padding-right: 15px;
+}
+
+.search-history-row .text-group {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.search-history-row .date-time {
+  font-size: 14px;
+}
+
+.search-history-row .action-button-group {
+  display: flex;
+  gap: 10px;
+}
+
 .history-action {
   width: 34px;
   height: 34px;
@@ -91,4 +153,5 @@ a {
   align-items: center;
   border: 0px;
   border-radius: 50%;
+  /* background-color: rgba(255, 255, 255, 1); */
 }
