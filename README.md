@@ -12,6 +12,12 @@ You need to have [NodeJS](https://nodejs.org/en/download/current) installed in o
 
 First, update the `.env` file with openWeatherMap api key.
 
+Second, install the dependencies:
+
+```bash
+npm i
+```
+
 Then, run the development server:
 
 ```bash
