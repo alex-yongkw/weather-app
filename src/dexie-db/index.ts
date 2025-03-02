@@ -36,9 +36,10 @@ export const addToSearchHistory = async (searchHistory: InsertType) => {
   }
 };
 
+// only retrieve maximum 10 search history record.
 export const getLatestTenRecord = async () => {
   try {
-    const id = await db.searchHistory.reverse().limit(4).toArray();
+    const id = await db.searchHistory.reverse().limit(10).toArray();
 
     return id;
   } catch (err) {

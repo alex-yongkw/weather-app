@@ -33,8 +33,6 @@ export const SearchHistory = ({ onSearchSuccess, onSearchError }: Props) => {
 
   const searchWeather = useCallback(
     (coordinate: Coordinate) => async () => {
-      console.log("** coordinate:", coordinate);
-
       const weatherInfo = await getWeatherByCoordinate(coordinate);
 
       if (isSuccessResponse(weatherInfo)) {
