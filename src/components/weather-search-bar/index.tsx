@@ -39,7 +39,7 @@ export const WeatherSearchBar = ({ onSearchSuccess, onSearchError }: Props) => {
   return (
     <Group className={styles.container}>
       <div className={styles.searchField}>
-        <CityTextField onChange={setCity} />
+        <CityTextField onChange={setCity} onEnterKeyDown={fetchWeatherInfo} />
       </div>
       <SearchButton onClick={fetchWeatherInfo} />
     </Group>
