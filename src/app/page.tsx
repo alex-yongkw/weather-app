@@ -7,11 +7,13 @@ import {
   type Props as WeatherInfoProps,
 } from "@/components/weather-info";
 import { SearchHistory } from "@/components/search-history";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import {
   ErrorResponse,
   type WeatherInfo as WeatherInfoRes,
 } from "./server-functions/get-weather";
+import { ApiError } from "@/ui/api-error";
+import { GreetingCard } from "@/ui/greeting-card";
 
 export default function Home() {
   const temperature: WeatherInfoProps["temperature"] = {
@@ -38,6 +40,10 @@ export default function Home() {
     setWeatherInfo(null);
   }, []);
 
+  const showGreeting = useMemo(() => {
+    return weatherInfo === null && searchError === null;
+  }, [weatherInfo, searchError]);
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -46,7 +52,10 @@ export default function Home() {
           onSearchError={updateError}
         />
         <div className={styles.weatherAndSearchHistory}>
-          {weatherInfo ? (
+          {showGreeting && (
+            <GreetingCard message="Hi there, you can check weather using search bar above." />
+          )}
+          {weatherInfo && (
             <WeatherInfo
               temperature={weatherInfo.temperature}
               location={weatherInfo.location}
@@ -54,10 +63,8 @@ export default function Home() {
               humidity={weatherInfo.humidity}
               weather={weatherInfo.condition}
             />
-          ) : (
-            <div>error</div>
           )}
-
+          {searchError && <ApiError errorMessage={searchError.error} />}
           <SearchHistory />
         </div>
       </main>
