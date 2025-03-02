@@ -50,3 +50,12 @@
     padding-left: 10px;
   }
 }
+
+/* Dark theme */
+[data-theme="dark"] .label {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+[data-theme="dark"] .input {
+  color: rgba(255, 255, 255, 1);
+}

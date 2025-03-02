@@ -4,12 +4,8 @@
   --background-image: url("../../public/bg-light.png");
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #d49fd7;
-    --foreground: #ededed;
-    --background-image: url("../../public/bg-light.png");
-  }
+[data-theme="dark"] {
+  --background-image: url("../../public/bg-dark.png");
 }
 
 html,

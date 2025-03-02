@@ -12,6 +12,7 @@ import {
 import { ApiError } from "@/ui/api-error";
 import { GreetingCard } from "@/ui/greeting-card";
 import { addToSearchHistory } from "@/dexie-db";
+import { ThemeToggle } from "@/ui/theme-toggle";
 
 export default function Home() {
   const [weatherInfo, setWeatherInfo] = useState<WeatherInfoRes | null>(null);
@@ -69,6 +70,7 @@ export default function Home() {
           />
         </div>
       </main>
+      <ThemeToggle />
     </div>
   );
 }

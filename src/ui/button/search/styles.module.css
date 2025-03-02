@@ -27,3 +27,8 @@
     height: 20px;
   }
 }
+
+/* Dark theme */
+[data-theme="dark"] .search {
+  background: rgba(40, 18, 77, 1);
+}
