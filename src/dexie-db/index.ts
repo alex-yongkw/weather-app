@@ -32,8 +32,7 @@ export const addToSearchHistory = async (searchHistory: InsertType) => {
 
     return id;
   } catch (err) {
-    // TODO -- maybe sent error to monitoring tool like Sentry.js
-    console.error(err);
+    handleError(err);
   }
 };
 
@@ -43,9 +42,23 @@ export const getLatestTenRecord = async () => {
 
     return id;
   } catch (err) {
-    // TODO -- maybe sent error to monitoring tool like Sentry.js
-    console.error(err);
+    handleError(err);
   }
+};
+
+export const deleteSearchHistoryById = async (id: number) => {
+  try {
+    await db.searchHistory.where("id").equals(id).delete();
+
+    return id;
+  } catch (err) {
+    handleError(err);
+  }
+};
+
+const handleError = (err: Error | unknown) => {
+  // TODO -- maybe sent error to monitoring tool like Sentry.js
+  console.error(err);
 };
 
 export type { SearchRecord };

@@ -3,7 +3,7 @@
 import { SearchHistoryRow } from "@/ui/search-history-row";
 import { Group, Label } from "react-aria-components";
 import { useLiveQuery } from "dexie-react-hooks";
-import { getLatestTenRecord } from "@/dexie-db";
+import { deleteSearchHistoryById, getLatestTenRecord } from "@/dexie-db";
 import { useCallback } from "react";
 import styles from "./styles.module.css";
 
@@ -26,7 +26,7 @@ export const SearchHistory = () => {
 
   const deleteSearchHistory = useCallback(
     (id: number) => () => {
-      console.log("** id:", id);
+      deleteSearchHistoryById(id);
     },
     []
   );
