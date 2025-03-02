@@ -1,8 +1,15 @@
 .container {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.weatherImage {
+  position: absolute;
+  top: -135px;
+  right: -20px;
 }
 
 .todayWeather {

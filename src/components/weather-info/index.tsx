@@ -6,6 +6,7 @@ import { TemperatureRange } from "@/ui/temperature-range.tsx";
 import { formatDateTime } from "@/utils";
 import { Group, Text } from "react-aria-components";
 import styles from "./styles.module.css";
+import { WeatherImage } from "@/ui/weather-image";
 
 export type Props = {
   temperature: {
@@ -31,10 +32,13 @@ export const WeatherInfo = ({
 }: Props) => {
   return (
     <Group className={styles.container}>
+      <div className={styles.weatherImage}>
+        <WeatherImage condition="sun" />
+      </div>
       <Text className={styles.todayWeather}>Today's Weather</Text>
-      <Text
-        className={styles.temperatureReading}
-      >{`${temperature.current}°`}</Text>
+      <Text className={styles.temperatureReading}>
+        {`${temperature.current}°`}
+      </Text>
       <TemperatureRange high={temperature.high} low={temperature.low} />
       <Group className={styles.infoRow}>
         <LocationText
