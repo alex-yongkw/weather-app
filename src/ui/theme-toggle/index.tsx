@@ -9,8 +9,6 @@ export const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
 
   const toggleTheme = useCallback(() => {
-    console.log("** theme:", theme);
-
     switch (theme) {
       case "system": {
         setTheme("light");
