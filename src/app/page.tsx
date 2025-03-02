@@ -14,6 +14,7 @@ import {
 } from "./server-functions/get-weather";
 import { ApiError } from "@/ui/api-error";
 import { GreetingCard } from "@/ui/greeting-card";
+import { addToSearchHistory } from "@/dexie-db";
 
 export default function Home() {
   const temperature: WeatherInfoProps["temperature"] = {
@@ -30,9 +31,20 @@ export default function Home() {
   const [weatherInfo, setWeatherInfo] = useState<WeatherInfoRes | null>(null);
   const [searchError, setSearchError] = useState<ErrorResponse | null>(null);
 
-  const updateWeather = useCallback((weather: WeatherInfoRes) => {
+  const updateWeather = useCallback(async (weather: WeatherInfoRes) => {
     setWeatherInfo(weather);
     setSearchError(null);
+
+    // add to search history
+    await addToSearchHistory({
+      location: {
+        city: weather.location.city,
+        country: weather.location.country,
+        lat: weather.location.coordinate.lat,
+        lon: weather.location.coordinate.lon,
+      },
+      timestamp: weather.timestamp,
+    });
   }, []);
 
   const updateError = useCallback((error: ErrorResponse) => {

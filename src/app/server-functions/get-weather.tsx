@@ -1,5 +1,10 @@
 "use server";
 
+type Coordinate = {
+  lat: number;
+  lon: number;
+};
+
 // based on API response shape, only needed field is typed.
 type ApiLocationCoordinate = {
   name: string;
@@ -8,11 +13,9 @@ type ApiLocationCoordinate = {
   lon: number;
 };
 
+// based on API response shape, only needed field is typed.
 type ApiWeatherInfo = {
-  coord: {
-    lat: number;
-    lon: number;
-  };
+  coord: Coordinate;
   weather: {
     id: number;
     main: string;
@@ -53,6 +56,10 @@ export type WeatherInfo = {
   location: {
     city: string;
     country: string;
+    coordinate: {
+      lat: number;
+      lon: number;
+    };
   };
   timestamp: Date;
   humidity: number;
@@ -130,6 +137,57 @@ export const getWeather = async (
         location: {
           city: weatherInfo.name,
           country: weatherInfo.sys.country,
+          coordinate: {
+            lat: weatherInfo.coord.lat,
+            lon: weatherInfo.coord.lon,
+          },
+        },
+        timestamp: new Date(weatherInfo.dt * 1000), // convert unix timestamp to js Date object
+        humidity: weatherInfo.main.humidity,
+        condition: weatherInfo.weather[0].main,
+      };
+    } else {
+      return {
+        error: weatherInfo.message,
+      };
+    }
+  } catch (err) {
+    // handle unexpected error (eg, network, server issue etc)
+    if (err instanceof Error) {
+      return {
+        error: err.message,
+      };
+    } else {
+      return {
+        error: "Unknown error occure.",
+      };
+    }
+  }
+};
+
+export const getWeatherByCoordinate = async (
+  coordinate: Coordinate
+): Promise<WeatherInfo | ErrorResponse> => {
+  try {
+    const { lat, lon } = coordinate;
+
+    const weatherInfo = await fetchWeatherInfo(lat, lon);
+
+    if (isSuccessResponse(weatherInfo)) {
+      // success
+      return {
+        temperature: {
+          current: Math.round(weatherInfo.main.temp),
+          high: Math.round(weatherInfo.main.temp_max),
+          low: Math.round(weatherInfo.main.temp_min),
+        },
+        location: {
+          city: weatherInfo.name,
+          country: weatherInfo.sys.country,
+          coordinate: {
+            lat: weatherInfo.coord.lat,
+            lon: weatherInfo.coord.lon,
+          },
         },
         timestamp: new Date(weatherInfo.dt * 1000), // convert unix timestamp to js Date object
         humidity: weatherInfo.main.humidity,

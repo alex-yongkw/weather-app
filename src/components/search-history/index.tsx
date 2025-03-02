@@ -2,43 +2,54 @@
 
 import { SearchHistoryRow } from "@/ui/search-history-row";
 import { Group, Label } from "react-aria-components";
+import { useLiveQuery } from "dexie-react-hooks";
+import { getLatestTenRecord } from "@/dexie-db";
+import { useCallback } from "react";
 import styles from "./styles.module.css";
 
+type Coordinate = {
+  lat: number;
+  lon: number;
+};
+
 export const SearchHistory = () => {
-  // TODO - replace with real data
-  const searchHistory = [
-    {
-      id: 1,
-      city: "Johor",
-      country: "MY",
-      date: new Date(),
-      onSearch: () => {},
-      onDelete: () => {},
+  const latest10SearchHistory = useLiveQuery(
+    async () => await getLatestTenRecord()
+  );
+
+  const searchWeather = useCallback(
+    (coordinate: Coordinate) => () => {
+      console.log("** coordinate:", coordinate);
     },
-    {
-      id: 2,
-      city: "London",
-      country: "UK",
-      date: new Date(),
-      onSearch: () => {},
-      onDelete: () => {},
+    []
+  );
+
+  const deleteSearchHistory = useCallback(
+    (id: number) => () => {
+      console.log("** id:", id);
     },
-  ];
+    []
+  );
 
   return (
     <Group className={styles.container}>
       <Label className={styles.label}>Search History</Label>
       <Group className={styles.historyList}>
-        {searchHistory.map((search) => (
-          <SearchHistoryRow
-            key={search.id}
-            city={search.city}
-            country={search.country}
-            date={search.date}
-            onSearch={search.onSearch}
-            onDelete={search.onDelete}
-          />
-        ))}
+        {latest10SearchHistory &&
+          latest10SearchHistory.length > 0 &&
+          latest10SearchHistory.map((search) => (
+            <SearchHistoryRow
+              key={search.id}
+              city={search.location.city}
+              country={search.location.country}
+              date={search.timestamp}
+              onSearch={searchWeather({
+                lat: search.location.lat,
+                lon: search.location.lon,
+              })}
+              onDelete={deleteSearchHistory(search.id)}
+            />
+          ))}
       </Group>
     </Group>
   );
