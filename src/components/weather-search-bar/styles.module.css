@@ -6,3 +6,10 @@
 .searchField {
   flex-grow: 1;
 }
+
+/* mobile screen size */
+@media only screen and (max-width: 400px) {
+  .container {
+    gap: 10px;
+  }
+}
