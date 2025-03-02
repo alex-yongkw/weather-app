@@ -20,3 +20,15 @@
   gap: 18px;
   margin-top: 26px;
 }
+
+/* mobile screen size */
+@media only screen and (max-width: 450px) {
+  .container {
+    border-radius: 24px;
+    padding-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 20px;
+    margin-top: 26px;
+  }
+}

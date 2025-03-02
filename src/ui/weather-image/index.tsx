@@ -1,6 +1,7 @@
 import { assertUnreachable } from "@/utils";
 import Image from "next/image";
 import { useMemo } from "react";
+import styles from "./styles.module.css";
 
 type Props = {
   condition: "sun" | "cloud";
@@ -24,7 +25,7 @@ export const WeatherImage = ({ condition }: Props) => {
 
   return (
     <Image
-      // className={styles.logo}
+      className={styles.weatherLogo}
       src={weatherCondition}
       alt="weather condition"
       width={300}

@@ -6,3 +6,12 @@
   gap: 10px;
   padding-bottom: 10px;
 }
+
+/* mobile screen size */
+@media only screen and (max-width: 450px) {
+  .container {
+    font-size: 14px;
+    gap: 6px;
+    padding-bottom: 4px;
+  }
+}

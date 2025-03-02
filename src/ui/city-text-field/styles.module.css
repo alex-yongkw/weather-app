@@ -30,7 +30,7 @@
 }
 
 /* mobile screen size */
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 450px) {
   .input {
     height: 40px;
     color: rgba(0, 0, 0, 0.9);

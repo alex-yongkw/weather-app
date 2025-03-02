@@ -50,6 +50,12 @@ export const WeatherInfo = ({
         <InfoText content={formatDateTime(date)} />
         <InfoText content={`Humidity: ${humidity}%`} />
         <InfoText content={weather} />
+        {/* for mobile screen sive */}
+        <Group className={styles.infoRowStacked}>
+          <InfoText content={formatDateTime(date)} />
+          <InfoText content={`Humidity: ${humidity}%`} />
+          <InfoText content={weather} />
+        </Group>
       </Group>
     </Group>
   );

@@ -1,0 +1,12 @@
+.weatherLogo {
+  width: 300px;
+  height: 300px;
+}
+
+/* mobile screen size */
+@media only screen and (max-width: 650px) {
+  .weatherLogo {
+    width: 165px;
+    height: 165px;
+  }
+}

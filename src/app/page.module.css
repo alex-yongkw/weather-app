@@ -29,8 +29,17 @@
 }
 
 /* mobile screen size */
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 450px) {
   .page {
     padding: 18px;
+  }
+
+  .weatherAndSearchHistory {
+    border-radius: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    margin-top: 112px;
   }
 }

@@ -30,4 +30,52 @@
 .infoRow {
   display: flex;
   justify-content: space-between;
+  flex-grow: 3;
+}
+
+.infoRowStacked {
+  display: none;
+}
+
+/* mobile screen size */
+@media only screen and (max-width: 650px) {
+  .container {
+    flex-direction: 4px;
+    padding-right: 4px;
+  }
+
+  .weatherImage {
+    position: absolute;
+    top: -90px;
+    right: -20px;
+  }
+
+  .todayWeather {
+    font-size: 14px;
+    padding-bottom: 4px;
+  }
+
+  .temperatureReading {
+    font-size: 70px;
+    line-height: 60px;
+    padding-bottom: 4px;
+  }
+
+  .infoRow {
+    font-size: 14px;
+  }
+
+  .infoRow > span:not(:first-child) {
+    display: none;
+  }
+
+  .infoRowStacked {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: end;
+    gap: 4px;
+  }
 }
