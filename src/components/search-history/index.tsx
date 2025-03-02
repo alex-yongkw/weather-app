@@ -12,6 +12,7 @@ import {
   type WeatherInfo,
 } from "@/app/server-functions/get-weather";
 import styles from "./styles.module.css";
+import { NoRecord } from "@/ui/no-record";
 
 // typescript type guard
 function isSuccessResponse(
@@ -56,8 +57,7 @@ export const SearchHistory = ({ onSearchSuccess, onSearchError }: Props) => {
     <Group className={styles.container}>
       <Label className={styles.label}>Search History</Label>
       <Group className={styles.historyList}>
-        {latest10SearchHistory &&
-          latest10SearchHistory.length > 0 &&
+        {latest10SearchHistory && latest10SearchHistory.length > 0 ? (
           latest10SearchHistory.map((search) => (
             <SearchHistoryRow
               key={search.id}
@@ -70,7 +70,10 @@ export const SearchHistory = ({ onSearchSuccess, onSearchError }: Props) => {
               })}
               onDelete={deleteSearchHistory(search.id)}
             />
-          ))}
+          ))
+        ) : (
+          <NoRecord message="No Record Found" />
+        )}
       </Group>
     </Group>
   );
