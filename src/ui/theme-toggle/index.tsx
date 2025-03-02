@@ -3,7 +3,6 @@ import { FaPaintRoller } from "react-icons/fa";
 import { useCallback } from "react";
 import { useTheme } from "next-themes";
 import styles from "./styles.module.css";
-import { assertUnreachable } from "@/utils";
 
 export const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();

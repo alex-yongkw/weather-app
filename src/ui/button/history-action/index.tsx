@@ -12,7 +12,6 @@ type Props = {
 export const HistoryAction = ({ type, onClick }: Props) => {
   const icon = useMemo(() => {
     const iconSize = 14;
-    const iconColor = "rgba(0, 0, 0, 0.5)";
 
     switch (type) {
       case "search":

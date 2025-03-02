@@ -41,7 +41,7 @@ export const SearchHistory = ({ onSearchSuccess, onSearchError }: Props) => {
         onSearchError(weatherInfo);
       }
     },
-    []
+    [onSearchSuccess, onSearchError]
   );
 
   const deleteSearchHistory = useCallback(
