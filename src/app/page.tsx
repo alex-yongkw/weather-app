@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./page.module.css";
 import { WeatherSearchBar } from "@/components/weather-search-bar";
 import {
@@ -5,6 +7,11 @@ import {
   type Props as WeatherInfoProps,
 } from "@/components/weather-info";
 import { SearchHistory } from "@/components/search-history";
+import { useCallback, useState } from "react";
+import {
+  ErrorResponse,
+  type WeatherInfo as WeatherInfoRes,
+} from "./server-functions/get-weather";
 
 export default function Home() {
   const temperature: WeatherInfoProps["temperature"] = {
@@ -18,18 +25,39 @@ export default function Home() {
     country: "MY",
   };
 
+  const [weatherInfo, setWeatherInfo] = useState<WeatherInfoRes | null>(null);
+  const [searchError, setSearchError] = useState<ErrorResponse | null>(null);
+
+  const updateWeather = useCallback((weather: WeatherInfoRes) => {
+    setWeatherInfo(weather);
+    setSearchError(null);
+  }, []);
+
+  const updateError = useCallback((error: ErrorResponse) => {
+    setSearchError(error);
+    setWeatherInfo(null);
+  }, []);
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <WeatherSearchBar />
+        <WeatherSearchBar
+          onSearchSuccess={updateWeather}
+          onSearchError={updateError}
+        />
         <div className={styles.weatherAndSearchHistory}>
-          <WeatherInfo
-            temperature={temperature}
-            location={location}
-            date={new Date()}
-            humidity={58}
-            weather="Clouds"
-          />
+          {weatherInfo ? (
+            <WeatherInfo
+              temperature={weatherInfo.temperature}
+              location={weatherInfo.location}
+              date={weatherInfo.timestamp}
+              humidity={weatherInfo.humidity}
+              weather={weatherInfo.condition}
+            />
+          ) : (
+            <div>error</div>
+          )}
+
           <SearchHistory />
         </div>
       </main>
