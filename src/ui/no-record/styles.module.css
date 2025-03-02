@@ -11,3 +11,9 @@
   padding-left: 20px;
   padding-right: 15px;
 }
+
+/* Dark theme */
+[data-theme="dark"] .container {
+  color: #ffffff;
+  background-color: rgba(26, 26, 26, 0.5);
+}
