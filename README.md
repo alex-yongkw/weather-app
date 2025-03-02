@@ -10,7 +10,9 @@ The project is hosted in Vercel Platform (free tier).
 
 You need to have [NodeJS](https://nodejs.org/en/download/current) installed in order to run the project.
 
-First, run the development server:
+First, update the `.env` file with openWeatherMap api key.
+
+Then, run the development server:
 
 ```bash
 npm run dev
