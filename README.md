@@ -26,6 +26,14 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+To run a production build, please run the following:
+
+```bash
+npm run build && npm run start
+```
+
+Then, open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
 ## Tech Stack
 
 - [React.js](https://react.dev/)
