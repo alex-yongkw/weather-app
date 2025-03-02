@@ -1,7 +1,3 @@
-"use client";
-
-// TODO -- SSR
-
 import { Button } from "react-aria-components";
 import { FaSearch } from "react-icons/fa";
 import styles from "./styles.module.css";

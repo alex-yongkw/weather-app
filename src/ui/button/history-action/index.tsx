@@ -1,11 +1,7 @@
-"use client";
-
-// TODO -- SSR
-
 import { assertUnreachable } from "@/utils";
 import { Button } from "react-aria-components";
 import { FaSearch, FaTrash } from "react-icons/fa";
-import styles from './styles.module.css'
+import styles from "./styles.module.css";
 
 type Props = {
   type: "search" | "delete";

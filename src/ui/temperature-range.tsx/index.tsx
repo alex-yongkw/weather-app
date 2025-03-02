@@ -1,9 +1,5 @@
-"use client";
-
 import { Group, Text } from "react-aria-components";
 import styles from "./styles.module.css";
-
-// TODO -- SSR
 
 type Props = {
   high: number;

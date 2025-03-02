@@ -1,10 +1,6 @@
-"use client";
-
 import { assertUnreachable } from "@/utils";
 import { useMemo } from "react";
 import { Text } from "react-aria-components";
-
-// TODO -- SSR
 
 type Props = {
   city: string;
