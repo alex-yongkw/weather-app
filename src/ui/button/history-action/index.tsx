@@ -1,8 +1,8 @@
 import { assertUnreachable } from "@/utils";
 import { Button } from "react-aria-components";
 import { FaSearch, FaTrash } from "react-icons/fa";
-import styles from "./styles.module.css";
 import { useMemo } from "react";
+import styles from "./styles.module.css";
 
 type Props = {
   type: "search" | "delete";
@@ -16,9 +16,9 @@ export const HistoryAction = ({ type, onClick }: Props) => {
 
     switch (type) {
       case "search":
-        return <FaSearch size={iconSize} color={iconColor} />;
+        return <FaSearch size={iconSize} className={styles.icon} />;
       case "delete":
-        return <FaTrash size={iconSize} color={iconColor} />;
+        return <FaTrash size={iconSize} className={styles.icon} />;
       default:
         assertUnreachable(type);
     }

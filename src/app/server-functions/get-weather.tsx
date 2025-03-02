@@ -116,7 +116,7 @@ export const getWeather = async (
     const locationCoordinate = await fetchCoordinate(city);
 
     // early return
-    if (locationCoordinate.length === 0) {
+    if (locationCoordinate.length === 1) {
       return {
         error: "Not Found. Please search for another city/country.",
       };

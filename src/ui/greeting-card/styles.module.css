@@ -19,3 +19,8 @@
     height: 129px;
   }
 }
+
+/* Dark theme */
+[data-theme="dark"] .container {
+  color: #ffffff;
+}

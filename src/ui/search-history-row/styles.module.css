@@ -45,3 +45,14 @@
     gap: 2px;
   }
 }
+
+/* Dark theme */
+[data-theme="dark"] .container {
+  color: #ffffff;
+  background-color: rgba(26, 26, 26, 0.5);
+}
+
+[data-theme="dark"] .dateAndTime {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+}
