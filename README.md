@@ -1,36 +1,45 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## tl;dr - Live Preview
+
+The project is hosted in Vercel Platform (free tier).
+
+[Live Preview Link](https://weather-app-eosin-two-66.vercel.app/)
+
+## Getting Started (Development)
+
+You need to have [NodeJS](https://nodejs.org/en/download/current) installed in order to run the project.
 
 First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [React.js](https://react.dev/)
+- [NextJS](https://nextjs.org/)
+  - NextJS is choosen because it provide a full-stack development environment. The CLI tool provide enable rapid scaffold & prototyping. It provide fast hot-reload which make development a breeze.
+- [Typescript](https://www.typescriptlang.org/)
+  - Static Typing – Catches errors at compile time, reducing runtime bugs.
+  - Strict Type Checking – Prevents unintended type-related errors.
+  - Better Maintainability – Enforces consistency and reduces technical debt.
+- [React-Aria UI Component](https://react-spectrum.adobe.com/react-aria/index.html)
+  - React Aria provides unstyled components and hooks for common UI elements, enabling reusable, accessible, and internationalized components. It lets developers control styling while ensuring built-in semantics, behavior, and interactions across all input methods and assistive technologies.
 
-## Learn More
+## The App
 
-To learn more about Next.js, take a look at the following resources:
+- Search history are stored in [indexDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API). Only 10 most recent search history will be displayed on the UI.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Possible Improvement
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Following are some future imporovement that can be done on this app:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Internationalization i18n using [react-i18next](https://react.i18next.com/)
+- Server Side Rendering (SSR) [NextJS SSR](https://nextjs.org/docs/pages/building-your-application/rendering/server-side-rendering)
+- API rate limiting.
+- Initial weather search based on user current device location.
+- Clear seaerch history function.
