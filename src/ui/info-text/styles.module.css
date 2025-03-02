@@ -10,3 +10,8 @@
     font-size: 14px;
   }
 }
+
+/* Dark theme */
+[data-theme="dark"] .text {
+  color: #ffffff;
+}

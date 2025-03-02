@@ -79,3 +79,12 @@
     gap: 4px;
   }
 }
+
+/* Dark theme */
+[data-theme="dark"] .todayWeather {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .temperatureReading {
+  color: #ffffff;
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import { InfoText } from "@/ui/info-text";
-import { LocationText } from "@/ui/location-text/indx";
+import { LocationText } from "@/ui/location-text";
 import { TemperatureRange } from "@/ui/temperature-range.tsx";
 import { formatDateTime } from "@/utils";
 import { Group, Text } from "react-aria-components";

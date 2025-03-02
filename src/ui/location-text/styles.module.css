@@ -1,0 +1,4 @@
+/* Dark theme */
+[data-theme="dark"] .text {
+  color: #ffffff !important;
+}

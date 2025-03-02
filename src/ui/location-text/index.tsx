@@ -1,6 +1,7 @@
 import { assertUnreachable } from "@/utils";
 import { useMemo } from "react";
 import { Text } from "react-aria-components";
+import styles from "./styles.module.css";
 
 type Props = {
   city: string;
@@ -30,7 +31,7 @@ export const LocationText = ({ city, country, color, bold }: Props) => {
 
   const textWeight = useMemo(() => (bold ? "700" : "400"), [bold]);
 
-  const styles = useMemo(
+  const style = useMemo(
     () => ({
       color: textColor,
       fontWeight: textWeight,
@@ -38,5 +39,7 @@ export const LocationText = ({ city, country, color, bold }: Props) => {
     [textColor, textWeight]
   );
 
-  return <Text style={styles}>{`${city}, ${country}`}</Text>;
+  return (
+    <Text style={style} className={styles.text}>{`${city}, ${country}`}</Text>
+  );
 };
