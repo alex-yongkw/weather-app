@@ -17,17 +17,6 @@ import { GreetingCard } from "@/ui/greeting-card";
 import { addToSearchHistory } from "@/dexie-db";
 
 export default function Home() {
-  const temperature: WeatherInfoProps["temperature"] = {
-    current: 26,
-    high: 29,
-    low: 25,
-  };
-
-  const location: WeatherInfoProps["location"] = {
-    city: "Johor",
-    country: "MY",
-  };
-
   const [weatherInfo, setWeatherInfo] = useState<WeatherInfoRes | null>(null);
   const [searchError, setSearchError] = useState<ErrorResponse | null>(null);
 
