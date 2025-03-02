@@ -33,6 +33,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## The App
 
 - Search history are stored in [indexDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API). Only 10 most recent search history will be displayed on the UI.
+- The floating button with paint brush icon is theme toggle, clicking on it will toggle the theme from light -> dark -> system.
 
 ## Possible Improvement
 
