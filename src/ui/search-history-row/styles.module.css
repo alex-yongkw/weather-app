@@ -26,3 +26,22 @@
   display: flex;
   gap: 10px;
 }
+
+/* mobile screen size */
+@media only screen and (max-width: 540px) {
+  .container {
+    font-size: 14px;
+  }
+
+  .dateAndTime {
+    font-size: 11px;
+  }
+
+  .locationAndDateTimeContainer {
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: start;
+    gap: 2px;
+  }
+}

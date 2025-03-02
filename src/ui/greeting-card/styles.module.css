@@ -12,3 +12,10 @@
   border-radius: 24px;
   padding: 20px;
 }
+
+/* mobile screen size */
+@media only screen and (max-width: 450px) {
+  .container {
+    height: 129px;
+  }
+}
