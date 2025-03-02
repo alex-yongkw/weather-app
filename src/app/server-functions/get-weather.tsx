@@ -1,6 +1,6 @@
 "use server";
 
-type Coordinate = {
+export type Coordinate = {
   lat: number;
   lon: number;
 };

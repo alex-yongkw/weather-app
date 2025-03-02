@@ -66,7 +66,10 @@ export default function Home() {
             />
           )}
           {searchError && <ApiError errorMessage={searchError.error} />}
-          <SearchHistory />
+          <SearchHistory
+            onSearchSuccess={updateWeather}
+            onSearchError={updateError}
+          />
         </div>
       </main>
     </div>

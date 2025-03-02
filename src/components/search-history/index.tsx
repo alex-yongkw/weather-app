@@ -5,21 +5,42 @@ import { Group, Label } from "react-aria-components";
 import { useLiveQuery } from "dexie-react-hooks";
 import { deleteSearchHistoryById, getLatestTenRecord } from "@/dexie-db";
 import { useCallback } from "react";
+import {
+  Coordinate,
+  getWeatherByCoordinate,
+  type ErrorResponse,
+  type WeatherInfo,
+} from "@/app/server-functions/get-weather";
 import styles from "./styles.module.css";
 
-type Coordinate = {
-  lat: number;
-  lon: number;
+// typescript type guard
+function isSuccessResponse(
+  res: WeatherInfo | ErrorResponse
+): res is WeatherInfo {
+  return (res as WeatherInfo).timestamp instanceof Date;
+}
+
+type Props = {
+  onSearchSuccess: (weatherInfo: WeatherInfo) => void;
+  onSearchError: (searchError: ErrorResponse) => void;
 };
 
-export const SearchHistory = () => {
+export const SearchHistory = ({ onSearchSuccess, onSearchError }: Props) => {
   const latest10SearchHistory = useLiveQuery(
     async () => await getLatestTenRecord()
   );
 
   const searchWeather = useCallback(
-    (coordinate: Coordinate) => () => {
+    (coordinate: Coordinate) => async () => {
       console.log("** coordinate:", coordinate);
+
+      const weatherInfo = await getWeatherByCoordinate(coordinate);
+
+      if (isSuccessResponse(weatherInfo)) {
+        onSearchSuccess(weatherInfo);
+      } else {
+        onSearchError(weatherInfo);
+      }
     },
     []
   );
