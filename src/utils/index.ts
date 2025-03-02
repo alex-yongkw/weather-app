@@ -6,7 +6,7 @@ export const assertUnreachable = (value: never): never => {
 
 export const formatDateTime = (date: Date): string => {
   const dayOfMonth = date.getDate();
-  const month = date.getMonth();
+  const month = date.getMonth() + 1;
   const year = date.getFullYear();
 
   const hour = date.getHours();
