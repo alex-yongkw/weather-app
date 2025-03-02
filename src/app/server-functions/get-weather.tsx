@@ -123,9 +123,9 @@ export const getWeather = async (
       // success
       return {
         temperature: {
-          current: weatherInfo.main.temp,
-          high: weatherInfo.main.temp_max,
-          low: weatherInfo.main.temp_min,
+          current: Math.round(weatherInfo.main.temp),
+          high: Math.round(weatherInfo.main.temp_max),
+          low: Math.round(weatherInfo.main.temp_min),
         },
         location: {
           city: weatherInfo.name,
