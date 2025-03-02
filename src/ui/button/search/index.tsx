@@ -9,7 +9,7 @@ type Props = {
 export const SearchButton = ({ onClick }: Props) => {
   return (
     <Button onPress={onClick} className={styles.search}>
-      <FaSearch size={30} />
+      <FaSearch size={30} color="#FFFFFF" />
     </Button>
   );
 };
