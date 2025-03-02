@@ -1,8 +1,4 @@
-"use client";
-
-import { Group, Text } from "react-aria-components";
-import { HistoryAction } from "../button/history-action";
-import { formatDateTime } from "@/utils";
+import { Text } from "react-aria-components";
 import styles from "./styles.module.css";
 
 type Props = {

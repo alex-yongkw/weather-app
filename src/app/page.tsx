@@ -2,10 +2,7 @@
 
 import styles from "./page.module.css";
 import { WeatherSearchBar } from "@/components/weather-search-bar";
-import {
-  WeatherInfo,
-  type Props as WeatherInfoProps,
-} from "@/components/weather-info";
+import { WeatherInfo } from "@/components/weather-info";
 import { SearchHistory } from "@/components/search-history";
 import { useCallback, useMemo, useState } from "react";
 import {

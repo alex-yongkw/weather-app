@@ -35,7 +35,7 @@ export const WeatherInfo = ({
       <div className={styles.weatherImage}>
         <WeatherImage condition="sun" />
       </div>
-      <Text className={styles.todayWeather}>Today's Weather</Text>
+      <Text className={styles.todayWeather}>Today&apos;s Weather</Text>
       <Text className={styles.temperatureReading}>
         {`${temperature.current}°`}
       </Text>

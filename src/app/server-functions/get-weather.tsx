@@ -109,8 +109,8 @@ function isSuccessResponse(
 
 // TODO -- code flow is a bit messy, please improve.
 export const getWeather = async (
-  city: string,
-  country?: string
+  city: string
+  // country?: string
 ): Promise<WeatherInfo | ErrorResponse> => {
   try {
     const locationCoordinate = await fetchCoordinate(city);
