@@ -122,7 +122,7 @@ export const getWeather = async (
       };
     }
 
-    const { lat, lon } = locationCoordinate.at(0)!;
+    const { lat, lon } = locationCoordinate[0]!;
 
     const weatherInfo = await fetchWeatherInfo(lat, lon);
 
