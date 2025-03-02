@@ -14,7 +14,7 @@ export const TemperatureRange = ({ high, low }: Props) => {
   return (
     <Group className={styles.container}>
       <Text>{`H: ${high}°`}</Text>
-      <Text>{`L: ${high}°`}</Text>
+      <Text>{`L: ${low}°`}</Text>
     </Group>
   );
 };
